@@ -16,7 +16,7 @@ class MysqlPipeline(object):
             db='scrapy',
             user='root',
             passwd='123456',
-            charset='utf8',
+            charset='utf8mb4',
             use_unicode=True
         )
         self.cursor=self.connect.cursor()
@@ -24,11 +24,11 @@ class MysqlPipeline(object):
     def process_item(self, item, spider):
         self.cursor.execute(
             "insert into \
-            douyu\
+            %s\
             (timestamp,platform,title,username,online,fans,cate,rid)\
             value\
             ('%s','%s','%s','%s','%d','%d','%s','%s')"%\
-            (datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),item['platform'],item['title'],item['username'],item['online'],int(item['fans']),item['cate'],item['roomid'])
+            (item['platform'],datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),item['platform'],item['title'],item['username'],item['online'],int(item['fans']),item['cate'],item['roomid'])
         )
 
         self.connect.commit()
