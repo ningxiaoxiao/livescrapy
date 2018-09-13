@@ -6,7 +6,6 @@ from livescrapy.items import LivescrapyItem
 
 class DouyuSpider(scrapy.Spider):
     name = 'douyu'
-    pgcount=1
     allowed_domains = ['douyu.com','douyucdn.cn']
     start_urls = ['https://www.douyu.com/gapi/rkc/directory/0_0/1']
     
@@ -14,12 +13,6 @@ class DouyuSpider(scrapy.Spider):
 #https://www.douyu.com/gapi/rkc/directory/0_0/1
 #https://www.douyu.com/directory/all
 #得到分页数
-    
-        
-    def startpage(self,res):
-        #从res中得到一共多少页 然后增加到页面中.
-        pass
-
     def parse_room(self,res):
         j=json.loads(res.body)
         j=j['data']

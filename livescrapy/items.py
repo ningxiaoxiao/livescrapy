@@ -13,12 +13,10 @@ class LivescrapyItem(scrapy.Item):
     # name = scrapy.Field()
     platform=scrapy.Field()
 
-    roomid=scrapy.Field()
+    roomid=scrapy.Field()#标识
     title=scrapy.Field()
-    uid=scrapy.Field()
+    uid=scrapy.Field()#标识
     username=scrapy.Field()
     fans=scrapy.Field()
     online=scrapy.Field()
     cate=scrapy.Field()
-    cateid=scrapy.Field()
-    time=scrapy.Field()
