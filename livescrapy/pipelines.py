@@ -28,7 +28,7 @@ class MysqlPipeline(object):
             (timestamp,platform,title,username,online,fans,cate,rid)\
             value\
             ('%s','%s','%s','%s','%d','%d','%s','%s')"%\
-            (item['platform'],datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),item['platform'],item['title'],item['username'],item['online'],int(item['fans']),item['cate'],item['roomid'])
+            (item['platform'],datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),item['platform'],item['title'],item['username'].replace("'","''"),item['online'],int(item['fans']),item['cate'],item['roomid'])
         )
 
         self.connect.commit()
