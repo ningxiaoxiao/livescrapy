@@ -11,11 +11,11 @@ import datetime
 class MysqlPipeline(object):
     def __init__(self):
         self.connect=pymysql.connect(
-            host='192.168.1.55',#yj ubantu
-            port=3306,
+            host='127.0.0.1',#yj ubantu
+            port=3386,
             db='scrapy',
             user='root',
-            passwd='123456',
+            passwd='roottest123#',
             charset='utf8mb4',
             use_unicode=True
         )
